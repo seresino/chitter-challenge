@@ -42,11 +42,12 @@ TABLES:
 
 Users:
 id
+Name
 Email
 Password
 
-Messages - foreign key to users: 
+Messages:
 id
 content
 datetime
-user.id
+user.id - foreign key to users: 
