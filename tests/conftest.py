@@ -25,6 +25,7 @@ def test_web_address(xprocess):
         args = [python_executable, app_file]
 
     xprocess.ensure("flask_test_server", Starter)
+    os.environ['APP_ENV'] = 'test'
 
     yield f"localhost:{port}"
 

@@ -1,11 +1,13 @@
 from peewee import *
+from lib.person import *
+from datetime import *
 
-db = PostgresqlDatabase('test', user='rubyseresin', password='', host='localhost')
+db = PostgresqlDatabase('chitter-challenge', user='rubyseresin', password='', host='localhost')
 
 class Peep(Model):
     content = CharField()
-    time = DateField()
-    # user.id - foreign key to users: 
+    post_time = DateTimeField(default=datetime.now)
+    user_id = ForeignKeyField(Person, backref='peeps')
     
 
     class Meta:

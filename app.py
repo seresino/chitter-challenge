@@ -4,7 +4,7 @@ from lib.database_connection import *
 from lib.person import *
 from lib.peep import *
 from peewee import *
-from datetime import datetime
+from datetime import *
 
 # Create a new Flask app
 app = Flask(__name__)
@@ -19,11 +19,14 @@ db = PostgresqlDatabase(
 
 # Connect to the database
 db.connect()
-new_user = Person(name='barry', username = 'bbop', email='barry@example.com', password='password')
+new_user = Person(name='barry', email='barry@example.com', password='password')
+new_peep = Peep(content='First Peep!', user_id=1)
 new_user.save()
-# new_peep = Peep.create(content='First Peep!', time=datetime.datetime.now(), user_id=1)
+new_peep.save()
 
 # == Your Routes Here ==
+
+
 
 # These lines start the server if you run this file directly
 # They also start the server configured to use the test database
