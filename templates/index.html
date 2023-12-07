@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chitter Challenge</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>All Peeps</h1>
+
+        <ul>
+            <!-- We'll use Jinja's `for` loop to iterate over all books -->
+            {% for peep in peeps %}
+            <div>
+                <p>Title: {{peep.content}}</p>
+            </div>
+            {% endfor %}
+        </ul>
+        <!-- This is a link to another page. -->
+        <!-- The browser will send `GET /albums/new` when the user clicks this -->
+        <a href="">Login</a>
+    </body>
+</html>
