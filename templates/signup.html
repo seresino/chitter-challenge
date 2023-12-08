@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chitter Challenge</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>Sign Up</h1>
+
+        <!-- This creates a form that will submit to POST /albums -->
+        <form action="/signup" method="post">
+
+            <!-- We check to see if there are any errors from a previous submission -->
+            {% if errors %}
+                <!-- If so, we show them. -->
+                <p class="t-errors">
+                    There was an error with your submission: {{ errors }}
+                </p>
+            {% endif %}
+
+            <p>
+                <!-- These `label` tags are important for accessibility -->
+                <label for="name">Name</label>
+
+                <!-- The `type` attribute says what kind of field this is -->
+                <!-- The `name` attribute says what parameter name should be sent to the server -->
+                <!-- The `id` field here is used to link it to the `for` tag in the label -->
+                <input type="text" name="name" id="name">
+            </p>
+            <p>
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+            </p>
+            <p>
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password">
+            </p>
+            <p>
+                <!-- `type` is submit here, to indicate it is a button -->
+                <!-- `value` is used as the button's text -->
+                <input type="submit" value="Sign Up">
+            </p>
+        </form>
+
+
+
+        <!-- This is a link to another page. -->
+        <!-- The browser will send `GET /albums/new` when the user clicks this -->
+        <a href="/">Back to All Peeps</a>
+    </body>
+</html>

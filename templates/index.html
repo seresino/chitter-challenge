@@ -5,18 +5,22 @@
         <meta charset="utf-8" />
     </head>
     <body>
-        <h1>All Peeps</h1>
+        <h2>All Peeps</h2>
 
         <ul>
             <!-- We'll use Jinja's `for` loop to iterate over all books -->
             {% for peep in peeps %}
             <div>
-                <p>Title: {{peep.content}}</p>
+                <p>{{peep.content}}</p>
+                <p>{{peep.user_id.name}} at {{peep.post_time}}</p>
             </div>
+            <br>
             {% endfor %}
         </ul>
         <!-- This is a link to another page. -->
         <!-- The browser will send `GET /albums/new` when the user clicks this -->
-        <a href="">Login</a>
+        <a href="/login">Log In</a>
+        <br>
+        <a href="/signup">Sign Up</a>
     </body>
 </html>

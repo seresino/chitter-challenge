@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chitter Challenge</title>
+        <meta charset="utf-8" />
+    </head>
+    <body>
+        <h1>Welcome, {{person.name}}</h1>
+        <br>
+        <h2>All Peeps</h2>
+
+        <ul>
+            <!-- We'll use Jinja's `for` loop to iterate over all books -->
+            {% for peep in peeps %}
+            <div>
+                <p>{{peep.content}}</p>
+                <p>{{peep.user_id.name}} at {{peep.post_time}}</p>
+            </div>
+            <br>
+            {% endfor %}
+        </ul>
+        
+        <form method="post" action="/{{person.id}}">
+            <p>
+                <!-- These `label` tags are important for accessibility -->
+                <label for="content">New Peep:</label>
+
+                <!-- The `type` attribute says what kind of field this is -->
+                <!-- The `name` attribute says what parameter name should be sent to the server -->
+                <!-- The `id` field here is used to link it to the `for` tag in the label -->
+                <input type="text" name="content" id="content">
+                <button type="submit">Post</button>
+            </p>
+        </form>
+
+        <form method="post" action="/logout/{{person.id}}">
+            <button type="submit">Logout</button>
+        </form>
+    </body>
+</html>
